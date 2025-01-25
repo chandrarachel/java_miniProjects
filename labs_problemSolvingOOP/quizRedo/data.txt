@@ -1,0 +1,15 @@
+Ada
+Bob
+Candy
+Dove
+Emily
+Frank
+Gigi
+Henry
+Ivy
+Joy
+10 4
+3 1
+2 8
+7 9
+6 5
