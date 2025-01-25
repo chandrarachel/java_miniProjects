@@ -1,0 +1,43 @@
+abstract class Employee {
+    private String name;
+    public Employee(String aName) { name = aName; }
+    public String getName() { return name; }
+    public abstract double getPay();
+}
+
+class SalariedEmployee extends Employee {
+    private double salary; // annual
+
+    public SalariedEmployee(String n, double s) {
+        super(n); salary = s;
+    }
+
+    public double getPay() { return salary / 12; }
+}
+
+class HourlyEmployee extends Employee {
+    private double wageRate;
+    private double hours; // for the month
+
+    public HourlyEmployee(String n, double w, double h) {
+        super(n); wageRate = w; hours = h;
+    }
+
+    public double getPay() { return wageRate * hours; }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Employee e1 = new SalariedEmployee("Kit", 15000);
+        Employee e2 = new HourlyEmployee("Helena", 52.5, 30);
+
+        // System.out.println(
+        // e1.getName() + " ($" + e1.getPay() + ")");
+        // System.out.println(
+        // e2.getName() + " ($" + e2.getPay() + ")");
+    }
+}
+/*
+ * Kit ($1250.0)
+ * Helena ($1575.0)
+ */
