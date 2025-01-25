@@ -1,0 +1,89 @@
+Step 1 Employee class
+=====================
+Fields:
+    private String name;
+    private int salary;
+    private int annualLeaves;
+
+Constructor, getName, addSalary:
+    public Employee(String n, int s, int al) {
+        name=n; salary=s; annualLeaves=al;
+    }
+
+    public String getName() {return name;}
+
+    public void addSalary(int inc) {salary+=inc;}
+
+toString:
+    @Override
+    public String toString() {
+        return _________ + " ($"+_________+", "+_________+" days)";
+     }
+}
+
+
+
+Step 2 Company class
+====================
+[See lab sheet]
+
+
+
+Step 3 main
+===========
+[1] Given framework
+
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+	public static void main(String [] args) throws FileNotFoundException
+	{	
+		
+	}
+}
+
+
+[2] Read file pathname + file opening
+
+	Scanner in = new Scanner(System.in);
+	System.out.print("Please input the file pathname: ");
+	String filepathname = in.nextLine();
+	Scanner inFile = new Scanner(new File(filepathname));
+	..
+	.. PLEASE add the code from [3]: (i) store employee data and (ii) process commands
+	..
+	inFile.close();			
+	in.close();
+	
+		
+[3] Read file contents (i) store employee data, (ii) process commands
+	int tot=inFile.nextInt();
+	Company company = Company.getInstance();
+	for (int i=0;i<tot;i++) 
+		company.addEmployee(new Employee(inFile.next(),inFile.nextInt(),inFile.nextInt()));
+			
+	while (inFile.hasNext())		
+	{
+		String cmdLine = inFile.nextLine();
+		
+		//Blank lines exist in data file as separators.  Skip them.
+		if (cmdLine.equals("")) continue;  
+		
+		System.out.println("\n> "+cmdLine);
+		
+		//split the words in actionLine => create an array of word strings [!!! LEARN !!!]
+		String[] cmdParts = cmdLine.split(" "); 
+		
+		if (cmdParts[0].equals("addSalary"))
+			(new AddSalary()).execute(cmdParts);
+		if (cmdParts[0].equals("list"))
+			(new ListAllRecords()).execute(cmdParts);
+	}
+
+
+
+Step 4 Command interface, AddSalary class, ListAllRecords class
+===============================================================
+[See lab sheet]
