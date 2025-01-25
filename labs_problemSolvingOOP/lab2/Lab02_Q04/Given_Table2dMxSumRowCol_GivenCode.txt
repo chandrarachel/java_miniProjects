@@ -1,0 +1,72 @@
+============================================================================
+For the instance field and the constructor in Table2dMxSumRowCol.java
+============================================================================
+
+(1) The instance field of a Table2dMxSumRowCol object: 
+
+	private int[][] nums; //This instance field is a reference to refer to the 2D array 
+
+	
+(2) Create the 2D array in the constructor:
+
+	nums = new int[10][10]; 
+
+
+(3) Construct the scanner object for file reading
+    The argument for Scanner constructor is a File object
+    The argument for File constructor is input as the filepathname 
+
+		inFile = new Scanner(_________); //replace the blank with: new File(filepathname)
+		
+		
+(4) Read file until the end (as long as there is data remaining)
+		while (___________) //replace the blank with: inFile.hasNext()
+		{
+			int row, col, value;
+			row = inFile.nextInt();
+			col = __________________
+			value = __________________
+			nums[____][____] = ____; //Note: should be [row][col], do not change the order
+		}
+
+		
+==============================================
+For print() in Table2dMxSumRowCol.java
+==============================================
+	public void print() {
+
+		/* For each row, we print the columns in that row.
+
+		   Note: row and column are easily mixed up.
+			To avoid careless mistake, readability is important.
+			Use meaningful variable names like row,col or r,c, or y,x etc. 
+			Do not use i,j. 
+		*/
+
+		for (int row=0; row<10; row++) 
+		{
+			for (int col=0; col<10; col++)
+			{
+				System.out.print("\t"+nums[row][col]); //separated by tabs
+			}
+			System.out.println();
+		}
+	}	
+
+
+==============================================
+For getRowSumMax() in Table2dMxSumRowCol.java
+==============================================
+	//Return the maximum sum among the rows
+	public int getRowSumMax(){
+		//Your task: implement this method
+		
+		return 0; //This is temporary!!  You may finish this method in next step.
+	}
+
+
+==============================================
+For getColSumMax() in Table2dMxSumRowCol.java
+==============================================
+	Similar to the getRowSumMax() method
+	
